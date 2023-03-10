@@ -1,4 +1,4 @@
-import { useRoutes, Link, useQueryParams } from 'raviger'
+import { useRoutes } from 'raviger'
 import Home from '../screens/Home'
 import VisualRoute from './VisualRoute'
 import VocalRoute from './VocalRoute'
@@ -8,6 +8,9 @@ import Object from '../screens/visual/detect/Object'
 import Text from '../screens/visual/detect/Text'
 import NearObject from '../screens/visual/location/NearObject'
 import Booking from '../screens/visual/voice/Booking'
+
+import DetectSpeech from '../screens/audio/detectSpeech'
+import CustomVibrations from '../screens/audio/CustomVibrations'
 
 const routes = {
     '/': () => <Home />,
@@ -20,7 +23,9 @@ const routes = {
     '/vocal': () => <VocalRoute />,
     
     '/audio': () => <AudioRoute />,
-
+    '/audio/speechtotext': () => <DetectSpeech />,
+    '/audio/vibrate': () => <CustomVibrations />,
+    
 
     '/settings': () => <Settings />
 }
