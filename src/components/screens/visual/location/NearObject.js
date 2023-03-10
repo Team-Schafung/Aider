@@ -1,5 +1,6 @@
 import { Link } from "raviger";
 import { useState } from "react";
+import TtsNearObject from "./TtsNearObject";
 
 export default function NearObject() {
     const [recognizedText, setRecognizedText] = useState("");
@@ -24,7 +25,6 @@ export default function NearObject() {
 
 
     const startRecognition = () => {
-        speak("Please let me know the object to search");
         recognition.start();
     };
 
@@ -55,12 +55,15 @@ export default function NearObject() {
                         textAlign: 'center',
                         borderRadius: 5, 
                         padding: 10,
-                        height: 200
+                        height: 50
                     }} className="w-2/3" href="/audio">
                         {recognizedText}
                     </p>
                 </div>
             </div>
+
+                <TtsNearObject objectToIdentify={recognizedText}/>
+
             <div className="flex justify-center items-center">
                 <Link style={{
                     backgroundColor: '#000',

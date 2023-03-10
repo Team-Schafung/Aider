@@ -1,4 +1,4 @@
-import VoiceSelector from "./VoiceSelector";
+import VoiceSelector from "../../tts/VoiceSelector";
 
 import { useRef, useEffect, useState, useCallback } from "react";
 import { Disclosure } from "@headlessui/react";
@@ -8,7 +8,7 @@ import Webcam from "react-webcam";
 import * as tf from "@tensorflow/tfjs";
 import * as cocossd from "@tensorflow-models/coco-ssd"
 
-import { drawRect } from "./helpers/utils";
+import { drawRect } from "../../tts/helpers/utils";
 
 
 function classNames(...classes) {
@@ -18,7 +18,7 @@ function classNames(...classes) {
 
 const synth = window.speechSynthesis;
 
-export default function Tts() {
+export default function TtsNearObject({objectToIdentify}) {
 
   let od="";
   let pod="";
@@ -52,11 +52,11 @@ export default function Tts() {
       const obj = await net.detect(video);
 
       if(obj[0]) {
-
+        
         od = obj[0].class;
-
-        if(od!=pod) {
-          const synth = window.speechSynthesis;
+        if(od!=pod && objectToIdentify.toLowerCase() == od.toLowerCase()) {
+        console.log(od)
+        const synth = window.speechSynthesis;
           const utterance = new SpeechSynthesisUtterance(od);
           utterance.voice = synth.getVoices()[1];
           synth.speak(utterance);
@@ -79,10 +79,10 @@ export default function Tts() {
   return (
     <>
       <div className="min-h-full">
-        <main className="mt-32">
-          <div className="max-w-5xl mx-auto pb-12 px-4 sm:px-4 lg:px-4">
+        <main className="mt-12">
+          <div className="max-w-5xl mx-auto px-4 sm:px-4 lg:px-4">
             {/* Replace with your content */}
-            <div className="bg-white rounded-lg shadow px-5 py-6 sm:px-6 screen">
+            <div className="bg-white rounded-lg shadow px-5 sm:px-6 screen">
               <Webcam
               className="video"
                 ref={webcamRef}
