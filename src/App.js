@@ -16,7 +16,8 @@ return (
         <p className=''>Please use this app on phone</p>
       </div>}
     {isTabletOrMobile && <HomeRoute />}
-  </div>);
+  </div>
+  );
 }
 
 export default App;

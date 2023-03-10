@@ -12,6 +12,8 @@ import Booking from '../screens/visual/voice/Booking'
 import DetectSpeech from '../screens/audio/detectSpeech'
 import CustomVibrations from '../screens/audio/CustomVibrations'
 
+import VoiceBox from '../screens/vocal/VoiceBox'
+
 const routes = {
     '/': () => <Home />,
     '/visual': () => <VisualRoute />,
@@ -20,7 +22,9 @@ const routes = {
     '/visual/booking': () => <Booking />,
     '/visual/identifytext': () => <Text />,
 
-    '/vocal': () => <VocalRoute />,
+    '/speech': () => <VocalRoute />,
+    '/speech/voicebox': () => <VoiceBox />,
+    
     
     '/audio': () => <AudioRoute />,
     '/audio/speechtotext': () => <DetectSpeech />,
