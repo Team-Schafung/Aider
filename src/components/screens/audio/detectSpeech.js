@@ -13,9 +13,9 @@ export default function DetectSpeech() {
     recognition.continuous = true;
 
     recognition.onresult = (event) => {
-    const resultIndex = event.resultIndex;
-    const transcript = event.results[resultIndex][0].transcript;
-    setRecognizedText(transcript);
+        const resultIndex = event.resultIndex;
+        const transcript = event.results[resultIndex][0].transcript;
+        setRecognizedText(transcript);
     };
 
 
