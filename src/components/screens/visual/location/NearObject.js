@@ -66,7 +66,7 @@ export default function NearObject() {
                 </div>
             </div>
 
-            <TtsNearObject objectToIdentify={recognizedText}/>
+            <TtsNearObject recognizedText={recognizedText}/>
 
             <div className="flex justify-center items-center">
                 <Link style={{

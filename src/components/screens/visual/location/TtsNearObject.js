@@ -18,10 +18,14 @@ function classNames(...classes) {
 
 const synth = window.speechSynthesis;
 
-export default function TtsNearObject({objectToIdentify}) {
+export default function TtsNearObject({recognizedText}) {
 
   let od="";
   let pod="";
+ 
+  // const recognizedTextProp = props.recognizedText
+
+  console.log(recognizedText)
 
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
 
@@ -41,7 +45,8 @@ export default function TtsNearObject({objectToIdentify}) {
   };
 
   const detect = async (net) => {
-    if (
+    console.log(recognizedText)
+  if (
       typeof webcamRef.current !== "undefined" &&
       webcamRef.current !== null &&
       webcamRef.current.video.readyState === 4
@@ -60,8 +65,9 @@ export default function TtsNearObject({objectToIdentify}) {
 
       if(obj[0]) {
         od = obj[0].class;
-        console.log(objectToIdentify)
-        if(od!=pod && objectToIdentify.toLowerCase() == od.toLowerCase()) {
+        console.log(recognizedText)
+        console.log(od)
+        if(od!=pod && recognizedText.toLowerCase() == od.toLowerCase()) {
           console.log(od)
           const synth = window.speechSynthesis;
           const utterance = new SpeechSynthesisUtterance(od);
@@ -78,7 +84,7 @@ export default function TtsNearObject({objectToIdentify}) {
 
   useEffect(() => {
     runCoco();
-  }, []);
+  }, [recognizedText]);
 
   if (!synth)
     return <span>Aw... your browser does not support Speech Synthesis</span>;
