@@ -69,8 +69,7 @@ export default function Booking() {
     }
 
     return (
-        <div>
-            Om shri Ganeshaya Namaha: Booking
+        <div>            
             <div className="flex justify-center items-center">
                 <Link style={{
                     backgroundColor: '#000',
