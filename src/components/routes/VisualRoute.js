@@ -41,7 +41,7 @@ export default function VisualRoute() {
             </div>
                 
             <div className="h-1/2 flex justify-around items-center">
-                <Link style={{
+                {/* <Link style={{
                     width: componentWidth, 
                     height: componentHeight, 
                     textAlign: 'center',
@@ -54,7 +54,7 @@ export default function VisualRoute() {
                     paddingRight: 10
                 }} href="/visual/booking">
                         Voice based travel booking
-                </Link>
+                </Link> */}
                 <Link style={{
                     width: componentWidth, 
                     height: componentHeight, 

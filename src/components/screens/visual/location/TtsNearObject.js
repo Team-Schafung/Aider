@@ -69,8 +69,9 @@ export default function TtsNearObject({recognizedText}) {
         console.log(od)
         if(od!=pod && recognizedText.toLowerCase() == od.toLowerCase()) {
           console.log(od)
+          let content = od + " found, move forward"
           const synth = window.speechSynthesis;
-          const utterance = new SpeechSynthesisUtterance(od);
+          const utterance = new SpeechSynthesisUtterance(content);
           utterance.voice = synth.getVoices()[1];
           synth.speak(utterance);
           pod = od;
@@ -97,7 +98,7 @@ export default function TtsNearObject({recognizedText}) {
             {/* Replace with your content */}
             <div className="bg-white rounded-lg shadow px-5 sm:px-6 screen">
               <Webcam
-              className="video"
+                className="video"
                 ref={webcamRef}
                 muted={true}
                 style={{
@@ -112,7 +113,7 @@ export default function TtsNearObject({recognizedText}) {
               />
 
               <canvas
-              className="canvas"
+                className="canvas"
                 ref={canvasRef}
                 style={{
                   position: "relative",

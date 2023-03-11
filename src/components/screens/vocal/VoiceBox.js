@@ -9,6 +9,7 @@ export default function VoiceBox() {
     }
 
     function speak(text) {
+        console.log(text)
         const utterance = new SpeechSynthesisUtterance(text);
         window.speechSynthesis.speak(utterance);
     }
@@ -16,7 +17,6 @@ export default function VoiceBox() {
     function handleSpeakClick() {
         speak(text);
     }
-
 
     return (
         <div>

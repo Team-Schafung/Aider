@@ -26,7 +26,7 @@ export default function Tts() {
   const isMobileDevice = /Mobi|Android/i.test(navigator.userAgent);
 
   const videoConstraints = {
-    facingMode: { exact: isMobileDevice ? "user" : "environment" }
+    // facingMode: { exact: isMobileDevice ? "user" : "environment" }
   };
 
   const webcamRef = useRef(null);
@@ -57,13 +57,15 @@ export default function Tts() {
 
       const obj = await net.detect(video);
 
-      if(obj[0]) {
-
+      if(obj) {
+        let odList = obj.map(i => i.class)
+        let odString = odList.join(",").toString()
         od = obj[0].class;
+        let final = "There is " + odString
         console.log("here")
         if(od!=pod) {
           const synth = window.speechSynthesis;
-          const utterance = new SpeechSynthesisUtterance(od);
+          const utterance = new SpeechSynthesisUtterance(final);
           utterance.voice = synth.getVoices()[1];
           synth.speak(utterance);
           pod = od;
@@ -101,6 +103,7 @@ export default function Tts() {
                   zindex: 1,
                   width: "100%",
                 }}
+                videoConstraints={videoConstraints}
               />
 
               <canvas
