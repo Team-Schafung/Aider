@@ -23,6 +23,12 @@ export default function Tts() {
   let od="";
   let pod="";
 
+  const isMobileDevice = /Mobi|Android/i.test(navigator.userAgent);
+
+  const videoConstraints = {
+    facingMode: { exact: isMobileDevice ? "user" : "environment" }
+  };
+
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
 
@@ -54,7 +60,7 @@ export default function Tts() {
       if(obj[0]) {
 
         od = obj[0].class;
-
+        console.log("here")
         if(od!=pod) {
           const synth = window.speechSynthesis;
           const utterance = new SpeechSynthesisUtterance(od);

@@ -1,9 +1,10 @@
 import { Link } from "raviger";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TtsNearObject from "./TtsNearObject";
 
 export default function NearObject() {
     const [recognizedText, setRecognizedText] = useState("");
+    let changed = false;
 
     window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     const recognition = new window.SpeechRecognition();
@@ -28,9 +29,12 @@ export default function NearObject() {
         recognition.start();
     };
 
+    useEffect(() => {
+        console.log(recognizedText)
+    }, [recognizedText]);
+
     return (
         <div>
-            Om shri Ganeshaya Namaha: NearObject
             <div>
                 <div className="flex justify-center items-center mt-48">
                     <button 
@@ -62,7 +66,7 @@ export default function NearObject() {
                 </div>
             </div>
 
-                <TtsNearObject objectToIdentify={recognizedText}/>
+            <TtsNearObject objectToIdentify={recognizedText}/>
 
             <div className="flex justify-center items-center">
                 <Link style={{

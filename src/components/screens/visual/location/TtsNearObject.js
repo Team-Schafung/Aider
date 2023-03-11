@@ -23,6 +23,13 @@ export default function TtsNearObject({objectToIdentify}) {
   let od="";
   let pod="";
 
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+
+  const videoConstraints = {
+    // facingMode: { exact: isMobile ? "environment" : "user" },
+    frameRate: 50,
+  };
+  
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
 
@@ -52,11 +59,11 @@ export default function TtsNearObject({objectToIdentify}) {
       const obj = await net.detect(video);
 
       if(obj[0]) {
-        
         od = obj[0].class;
+        console.log(objectToIdentify)
         if(od!=pod && objectToIdentify.toLowerCase() == od.toLowerCase()) {
-        console.log(od)
-        const synth = window.speechSynthesis;
+          console.log(od)
+          const synth = window.speechSynthesis;
           const utterance = new SpeechSynthesisUtterance(od);
           utterance.voice = synth.getVoices()[1];
           synth.speak(utterance);
@@ -95,6 +102,7 @@ export default function TtsNearObject({objectToIdentify}) {
                   zindex: 1,
                   width: "100%",
                 }}
+                videoConstraints={videoConstraints}
               />
 
               <canvas
