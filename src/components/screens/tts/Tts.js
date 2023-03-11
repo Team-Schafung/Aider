@@ -26,7 +26,7 @@ export default function Tts() {
   const isMobileDevice = /Mobi|Android/i.test(navigator.userAgent);
 
   const videoConstraints = {
-    // facingMode: { exact: isMobileDevice ? "user" : "environment" }
+    // facingMode: { exact: isMobileDevice ?  "environment": "user" }
   };
 
   const webcamRef = useRef(null);
@@ -62,7 +62,6 @@ export default function Tts() {
         let odString = odList.join(",").toString()
         od = obj[0].class;
         let final = "There is " + odString
-        console.log("here")
         if(od!=pod) {
           const synth = window.speechSynthesis;
           const utterance = new SpeechSynthesisUtterance(final);

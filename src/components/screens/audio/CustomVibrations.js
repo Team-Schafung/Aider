@@ -23,7 +23,6 @@ export default function CustomVibrations() {
 
     useEffect(() => {
         if (recognizedText.toLowerCase() === targetName.toLowerCase()) {
-            console.log("here 1")
             navigator.vibrate(200);
         }
     }, [recognizedText]);

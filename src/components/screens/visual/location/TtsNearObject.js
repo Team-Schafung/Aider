@@ -45,7 +45,6 @@ export default function TtsNearObject({recognizedText}) {
   };
 
   const detect = async (net) => {
-    console.log(recognizedText)
   if (
       typeof webcamRef.current !== "undefined" &&
       webcamRef.current !== null &&
