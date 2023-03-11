@@ -36,7 +36,7 @@ export default function AudioRoute() {
                     paddingLeft: 10,
                     paddingRight: 10
                 }} href="/audio/vibrate">
-                        Customize vibrations
+                    Customize vibrations
                 </Link>
             </div>
                 

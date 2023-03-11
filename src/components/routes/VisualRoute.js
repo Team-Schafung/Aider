@@ -22,7 +22,7 @@ export default function VisualRoute() {
                     paddingLeft: 10,
                     paddingRight: 10
                 }} href="/visual/object">
-                    Object detection
+                    Your 3rd eye
                 </Link>
                 <Link style={{
                     width: componentWidth, 
@@ -67,7 +67,7 @@ export default function VisualRoute() {
                     paddingLeft: 10,
                     paddingRight: 10
                 }} href="/visual/identifytext">
-                        Text identification
+                    Identify text in your documents
                 </Link>
             </div>
 
